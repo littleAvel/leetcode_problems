@@ -23,3 +23,19 @@ class Solution:
         answer = [nums[pair[1]] for pair in store_pairs]
 
         return answer
+
+
+class Solution:
+    def sortJumbled(self, mapping: List[int], nums: List[int]) -> List[int]:
+        mapped = {}
+        pairs, answer = [], []
+        mapped = [mapping[i] for i in range(len(mapping))]
+
+        for i in range(len(nums)):
+            s = ''.join(str(mapped[int(j)]) for j in str(nums[i]))
+            mapped_num = int(s)
+            pairs.append([i, mapped_num])
+
+        pairs.sort(key=lambda x: list(x)[1])
+
+        return [nums[pair[0]] for pair in pairs]
