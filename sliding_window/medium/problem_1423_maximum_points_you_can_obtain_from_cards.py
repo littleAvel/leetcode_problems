@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def maxScore(self, cardPoints: List[int], k: int) -> int:
         sum_left, sum_right = sum(cardPoints[:k]), 0
